@@ -13,7 +13,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 200
+  number: 201
   # NOTE: Conda forge lacks openblas on Windows, so skip the Windows build.
   skip: true  # [win]
   features:
@@ -26,13 +26,13 @@ requirements:
     - python
     - blas 1.1 {{ variant }}
     - openblas 0.2.19|0.2.19.*
-    - numpy x.x
+    - numpy 1.11.*
   run:
     - python
     - blas 1.1 {{ variant }}
     - libgfortran
     - openblas 0.2.19|0.2.19.*
-    - numpy x.x
+    - numpy >=1.11
 
 test:
   imports:
