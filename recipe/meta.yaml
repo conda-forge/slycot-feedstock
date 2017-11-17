@@ -25,13 +25,13 @@ requirements:
     - gcc          # [osx]
     - python
     - blas 1.1 {{ variant }}
-    - openblas 0.2.19|0.2.19.*
+    - openblas 0.2.20|0.2.20.*
     - numpy 1.11.*
   run:
     - python
     - blas 1.1 {{ variant }}
     - libgfortran
-    - openblas 0.2.19|0.2.19.*
+    - openblas 0.2.20|0.2.20.*
     - numpy >=1.11
 
 test:
