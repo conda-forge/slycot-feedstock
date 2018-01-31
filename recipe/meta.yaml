@@ -1,6 +1,6 @@
 {% set name = "slycot" %}
-{% set version = "0.2.0" %}
-{% set sha256 = "22dc7f108639aeb8ced11e953b0543c6acb07698a5d1f6c866a46b8041d3fca0" %}
+{% set version = "0.3.0" %}
+{% set sha256 = "6be508f5ac1159da9011de7764df0f82bffdda6ca0899182ec12d039b81c831a" %}
 {% set variant = "openblas" %}
 
 package:
