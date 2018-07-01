@@ -16,14 +16,16 @@ analysis.
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/slycot-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/slycot-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/slycot-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/slycot-feedstock)
-Windows: ![](https://cdn.rawgit.com/conda-forge/conda-smithy/90845bba35bec53edac7a16638aa4d77217a3713/conda_smithy/static/disabled.svg)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/slycot-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/slycot-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/slycot-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/slycot-feedstock)
+![Windows disabled](https://img.shields.io/badge/Windows-disabled-lightgrey.svg)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/slycot/badges/version.svg)](https://anaconda.org/conda-forge/slycot)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/slycot/badges/downloads.svg)](https://anaconda.org/conda-forge/slycot)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-slycot-green.svg)](https://anaconda.org/conda-forge/slycot) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/slycot.svg)](https://anaconda.org/conda-forge/slycot) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/slycot.svg)](https://anaconda.org/conda-forge/slycot) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/slycot.svg)](https://anaconda.org/conda-forge/slycot) |
 
 Installing slycot
 =================
