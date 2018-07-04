@@ -1,7 +1,7 @@
 {% set name = "slycot" %}
 {% set version = "0.3.3" %}
 {% set sha256 = "d98ec859a398af8a3917a0d62e0724996c8b3e780813f8685410525aed9fbafd" %}
-{% set variant = "lapack" %}
+{% set variant = "openblas" %}
 
 package:
   name: {{ name|lower }}
@@ -14,29 +14,27 @@ source:
 
 build:
   number: 0
+  # NOTE: Conda forge lacks openblas on Windows, so skip the Windows build.
+  skip: true  # [win]
+  features:
+    - blas_{{ variant }}
 
 requirements:
   build:
-    - {{ compiler('fortran') }}  # [not win]
+    - {{ compiler('fortran') }}
     - {{ compiler('c') }}
-    - flang  # [win]
-    # on Windows, this relies on having visual studio CE 2015
-    # this link needed quite some searching, please do not delete!
-    # https://go.microsoft.com/fwlink/?LinkId=532606&clcid=0x409
 
   host:
     - python
+    - blas 1.1 {{ variant }}
+    - openblas
     - numpy
-    - libflang  # [win]
-    - libgfortran  # [not win]
-    - lapack
 
   run:
-    - {{ pin_compatible('numpy') }}
-    - lapack
-    - libgfortran  # [not win]
-    - libflang  # [win]
     - python
+    - blas 1.1 {{ variant }}
+    - openblas
+    - {{ pin_compatible('numpy') }}
 
 test:
   imports:
