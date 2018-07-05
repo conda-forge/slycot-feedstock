@@ -1,6 +1,6 @@
 {% set name = "slycot" %}
-{% set version = "0.3.0" %}
-{% set sha256 = "6be508f5ac1159da9011de7764df0f82bffdda6ca0899182ec12d039b81c831a" %}
+{% set version = "0.3.3" %}
+{% set sha256 = "d98ec859a398af8a3917a0d62e0724996c8b3e780813f8685410525aed9fbafd" %}
 {% set variant = "openblas" %}
 
 package:
@@ -13,7 +13,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 202
+  number: 0
   # NOTE: Conda forge lacks openblas on Windows, so skip the Windows build.
   skip: true  # [win]
   features:
@@ -23,11 +23,13 @@ requirements:
   build:
     - {{ compiler('fortran') }}
     - {{ compiler('c') }}
+
   host:
     - python
     - blas 1.1 {{ variant }}
     - openblas
     - numpy
+
   run:
     - python
     - blas 1.1 {{ variant }}
@@ -52,3 +54,4 @@ about:
 extra:
   recipe-maintainers:
     - moorepants
+    - murrayrm
