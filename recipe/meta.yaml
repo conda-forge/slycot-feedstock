@@ -13,27 +13,29 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
-  # NOTE: Conda forge lacks openblas on Windows, so skip the Windows build.
-  skip: true  # [win]
+  number: 1
   features:
-    - blas_{{ variant }}
+    - blas_{{ variant }}  # [not win]
 
 requirements:
   build:
-    - {{ compiler('fortran') }}
-    - {{ compiler('c') }}
+    - {{ compiler('fortran') }}  # [unix]
+    - {{ compiler('c') }}  # [unix]
+    - {{ compiler('m2w64_fortran') }}  # [win]
+    - {{ compiler('m2w64_c') }}  # [win]
 
   host:
     - python
-    - blas 1.1 {{ variant }}
-    - openblas
+    - blas 1.1 {{ variant }}  # [not win]
+    - openblas  # [not win]
+    - m2w64-openblas  # [win]
     - numpy
 
   run:
     - python
-    - blas 1.1 {{ variant }}
-    - openblas
+    - blas 1.1 {{ variant }}  # [not win]
+    - openblas  # [not win]
+    - m2w64-openblas  # [win]
     - {{ pin_compatible('numpy') }}
 
 test:
