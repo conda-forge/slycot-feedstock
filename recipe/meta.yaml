@@ -13,7 +13,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   # NOTE: Conda forge lacks openblas on Windows, so skip the Windows build.
   skip: true  # [win]
   features:
