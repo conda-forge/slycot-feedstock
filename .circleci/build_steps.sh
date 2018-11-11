@@ -29,13 +29,11 @@ conda clean --lock
 
 source run_conda_forge_build_setup
 
+# make the build number clobber
+make_build_number "${FEEDSTOCK_ROOT}" "${RECIPE_ROOT}" "${CONFIG_FILE}"
 
-# Install the yum requirements defined canonically in the
-# "recipe/yum_requirements.txt" file. After updating that file,
-# run "conda smithy rerender" and this line will be updated
-# automatically.
-/usr/bin/sudo -n yum install -y devtoolset-2-gcc-gfortran
-
+conda build "${RECIPE_ROOT}" -m "${CI_SUPPORT}/${CONFIG}.yaml" \
+    --clobber-file "${CI_SUPPORT}/clobber_${CONFIG}.yaml"  --quiet
 
 # make the build number clobber
 make_build_number "${FEEDSTOCK_ROOT}" "${RECIPE_ROOT}" "${CONFIG_FILE}"
