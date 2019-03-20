@@ -15,7 +15,6 @@ build:
   number: 1003
   # NOTE: Conda forge lacks openblas on Windows, so skip the Windows build.
   skip: true  # [win]
-  features:
 
 requirements:
   build:
@@ -24,7 +23,7 @@ requirements:
 
   host:
     - libblas
-    - libcblas
+    - liblapack
     - python
     - numpy
 
