@@ -1,7 +1,6 @@
 {% set name = "slycot" %}
 {% set version = "0.3.3" %}
 {% set sha256 = "d98ec859a398af8a3917a0d62e0724996c8b3e780813f8685410525aed9fbafd" %}
-{% set variant = "openblas" %}
 
 package:
   name: {{ name|lower }}
@@ -13,11 +12,9 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1002
+  number: 1003
   # NOTE: Conda forge lacks openblas on Windows, so skip the Windows build.
   skip: true  # [win]
-  features:
-    - blas_{{ variant }}
 
 requirements:
   build:
@@ -25,15 +22,13 @@ requirements:
     - {{ compiler('c') }}
 
   host:
+    - libblas
+    - liblapack
     - python
-    - blas 1.1 {{ variant }}
-    - openblas
     - numpy
 
   run:
     - python
-    - blas 1.1 {{ variant }}
-    - openblas
     - {{ pin_compatible('numpy') }}
 
 test:
