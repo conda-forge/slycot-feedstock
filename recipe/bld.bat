@@ -4,10 +4,10 @@ set LAPACK_ROOT=%PREFIX%
 :: correct FC, apparently pointed to host prefix??
 set FC=%BUILD_PREFIX%\Library\bin\flang.exe
 
-if exist %BUILD_PREFIX%\Scripts\f2py.exe (
-  set F2PY=%BUILD_PREFIX%\Scripts\f2py.exe
+if exist %PREFIX%\Scripts\f2py.exe (
+  set F2PY=%PREFIX%\Scripts\f2py.exe
 ) else (
-  set F2PY=%BUILD_PREFIX%\Scripts\f2py.bat
+  set F2PY=%PREFIX%\Scripts\f2py.bat
 )
 
 "%PYTHON%" setup.py install
