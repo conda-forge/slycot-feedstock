@@ -46,8 +46,10 @@ requirements:
 
   run:
     - python
-    - mkl                        # [not osx]
+    - mkl                        # [linux]
     - openblas                   # [osx]
+    - lapack                     # [win]
+    - blas                       # [win]
     - {{ pin_compatible('numpy') }}
 
 test:
