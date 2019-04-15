@@ -1,21 +1,13 @@
 c_compiler:
-- gcc
-c_compiler_version:
-- '7'
+- vs2015
 channel_sources:
 - conda-forge,defaults
 channel_targets:
 - conda-forge main
-docker_image:
-- condaforge/linux-anvil-comp7
-fortran_compiler:
-- gfortran
-fortran_compiler_version:
-- '7'
 mkl:
 - '2019'
 numpy:
-- '1.9'
+- '1.11'
 pin_run_as_build:
   mkl:
     max_pin: x
@@ -24,3 +16,6 @@ pin_run_as_build:
     max_pin: x.x
 python:
 - '3.7'
+zip_keys:
+- - python
+  - c_compiler
