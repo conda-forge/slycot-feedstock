@@ -22,7 +22,8 @@ requirements:
   build:
     - {{ compiler('fortran') }}  # [not win]
     - flang                      # [win]
-    - {{ compiler('c') }}
+    - {{ compiler('c') }}        # [not osx]
+    - gcc                        # [osx]
 
   host:
     - mkl                        
@@ -32,6 +33,7 @@ requirements:
 
   run:
     - python
+    - mkl
     - {{ pin_compatible('numpy') }}
 
 test:
