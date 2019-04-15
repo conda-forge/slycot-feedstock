@@ -22,9 +22,11 @@ build:
   skip: true                     # [osx and py==27]
 
 # TODO: (later) solve imperfections
-# * the clang compiler on osx gives a link error, thought to be outside
-#   slycot build. Try later when this may be fixed. Alternative: gcc
+# * the clang compiler on osx gives a link error, thought to be related to 
+#   cmake and env. Try later when this may be fixed. Alternative: gcc
 # * the mkl library does not link on osx. Alternative: openblas
+# * blas/lapack seem to be part of the base windows host environment.
+#   presumably pulled in by numpy. Monitor for changes.
 
 requirements:
   build:
@@ -34,8 +36,10 @@ requirements:
     - gcc                        # [osx]
 
   host:
-    - mkl                        # [not osx]
+    - mkl                        # [linux]
     - openblas                   # [osx]
+    - lapack                     # [win]
+    - blas                       # [win]
     - python
     - numpy
     - scikit-build
