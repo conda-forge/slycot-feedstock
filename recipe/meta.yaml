@@ -1,6 +1,6 @@
 {% set name = "slycot" %}
 {% set version = "0.3.3" %}
-{% set sha256 = "d98ec859a398af8a3917a0d62e0724996c8b3e780813f8685410525aed9fbafd" %}
+{% set sha256 = "81afab36903c0885c5eec8d6700d180b652b3c5f3e6eeeb6c5bcbb77d4029b17" %}
 
 package:
   name: {{ name|lower }}
@@ -8,24 +8,25 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  #url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: file:///home/repa/control/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
-  number: 1003
-  # NOTE: Conda forge lacks openblas on Windows, so skip the Windows build.
-  skip: true  # [win]
+  number: 0
 
 requirements:
   build:
-    - {{ compiler('fortran') }}
+    - {{ compiler('fortran') }}  # [not win]
+    - flang                      # [win]
     - {{ compiler('c') }}
 
   host:
-    - libblas
-    - liblapack
+    - mkl                        # [not win]
+    - openblas			 # [win]
     - python
     - numpy
+    - scikit-build
 
   run:
     - python
@@ -50,3 +51,4 @@ extra:
   recipe-maintainers:
     - moorepants
     - murrayrm
+    - repagh
