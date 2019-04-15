@@ -17,6 +17,8 @@ source:
 
 build:
   number: 1004
+  # problem with python2.7 compiler configuration
+  skip: true                     # [win and py==27]
 
 requirements:
   build:
@@ -26,14 +28,16 @@ requirements:
     - gcc                        # [osx]
 
   host:
-    - mkl                        
+    - mkl                        # [not osx]
+    - openblas                   # [osx]
     - python
     - numpy
     - scikit-build
 
   run:
     - python
-    - mkl
+    - mkl                        # [not osx]
+    - openblas                   # [osx]
     - {{ pin_compatible('numpy') }}
 
 test:

@@ -1,9 +1,5 @@
 MACOSX_DEPLOYMENT_TARGET:
 - '10.9'
-c_compiler:
-- clang
-c_compiler_version:
-- '4'
 channel_sources:
 - conda-forge,defaults
 channel_targets:
@@ -16,13 +12,13 @@ macos_machine:
 - x86_64-apple-darwin13.4.0
 macos_min_version:
 - '10.9'
-mkl:
-- '2019'
 numpy:
 - '1.9'
+openblas:
+- 0.3.3
 pin_run_as_build:
-  mkl:
-    max_pin: x
+  openblas:
+    max_pin: x.x.x
   python:
     min_pin: x.x
     max_pin: x.x
