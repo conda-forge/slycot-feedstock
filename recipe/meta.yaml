@@ -1,6 +1,6 @@
 {% set name = "slycot" %}
 {% set version = "0.3.3" %}
-{% set sha256 = "0fc662d639d6be8abe3c2560ef9646a4c5141abf77d106c926684ddfd6f0b88d" %}
+{% set sha256 = "e93f15b0e1c95262e3b498b0f378eb5302f7f02ccb720362840cbd0e13780565" %}
 
 package:
   name: {{ name|lower }}
@@ -17,9 +17,14 @@ source:
 
 build:
   number: 1004
-  # problem with python2.7 compiler configuration on windows
+  # problem with python2.7 configuration on windows and osx
   skip: true                     # [win and py==27]
   skip: true                     # [osx and py==27]
+
+# TODO: (later) solve imperfections
+# * the clang compiler on osx gives a link error, thought to be outside
+#   slycot build. Try later when this may be fixed. Alternative: gcc
+# * the mkl library does not link on osx. Alternative: openblas
 
 requirements:
   build:
