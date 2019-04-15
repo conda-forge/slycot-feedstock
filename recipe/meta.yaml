@@ -32,16 +32,14 @@ requirements:
     - gcc                        # [osx]
 
   host:
-    - mkl                        # [linux or win]
-    - openblas                   # [osx]
+    - openblas
     - python
     - numpy
     - scikit-build
 
   run:
     - python
-    - mkl                        # [linux or win]
-    - openblas                   # [osx]
+    - openblas
     - {{ pin_compatible('numpy') }}
     - libflang                   # [win]
 
