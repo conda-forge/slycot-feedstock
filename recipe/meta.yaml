@@ -43,6 +43,7 @@ requirements:
     - mkl                        # [linux or win]
     - openblas                   # [osx]
     - {{ pin_compatible('numpy') }}
+    - libflang                   # [win]
 
 test:
   imports:
