@@ -1,6 +1,6 @@
 {% set name = "slycot" %}
 {% set version = "0.3.3" %}
-{% set sha256 = "81afab36903c0885c5eec8d6700d180b652b3c5f3e6eeeb6c5bcbb77d4029b17" %}
+{% set sha256 = "c7995e78cfb23986dc7f34e3191556e7d59fa77176a4b5e7965b2a3ceba71cf4" %}
 
 package:
   name: {{ name|lower }}
@@ -9,7 +9,10 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   #url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  url: file:///home/repa/control/{{ name }}-{{ version }}.tar.gz
+  #url: file:///home/repa/control/{{ name }}-{{ version }}.tar.gz
+  # temporary, for testing. 
+  url: https://github.com/repagh/Slycot/archive/update-buildconfig.tar.gz
+  # url: https://github.com/python-control/Slycot/archive/v{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
