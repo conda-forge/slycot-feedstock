@@ -1,6 +1,6 @@
 {% set name = "slycot" %}
 {% set version = "0.3.3" %}
-{% set sha256 = "e22f5d9b611328b1ea9cac32ea077043c327765f215ebb49ff41746d8e217e1d" %}
+{% set sha256 = "0fc662d639d6be8abe3c2560ef9646a4c5141abf77d106c926684ddfd6f0b88d" %}
 
 package:
   name: {{ name|lower }}
@@ -17,8 +17,9 @@ source:
 
 build:
   number: 1004
-  # problem with python2.7 compiler configuration
+  # problem with python2.7 compiler configuration on windows
   skip: true                     # [win and py==27]
+  skip: true                     # [osx and py==27]
 
 requirements:
   build:
