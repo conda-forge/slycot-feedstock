@@ -8,8 +8,6 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  #url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  #url: file:///home/repa/control/{{ name }}-{{ version }}.tar.gz
   # temporary, for testing. 
   url: https://github.com/repagh/Slycot/archive/update-buildconfig.tar.gz
   # url: https://github.com/python-control/Slycot/archive/v{{ version }}.tar.gz
@@ -24,9 +22,7 @@ build:
 # TODO: (later) solve imperfections
 # * the clang compiler on osx gives a link error, thought to be related to 
 #   cmake and env. Try later when this may be fixed. Alternative: gcc
-# * the mkl library does not link on osx. Alternative: openblas
-# * blas/lapack seem to be part of the base windows host environment.
-#   presumably pulled in by numpy. Monitor for changes.
+# * the mkl library does not link on osx or win. Alternative: openblas
 
 requirements:
   build:
@@ -37,9 +33,7 @@ requirements:
 
   host:
     - mkl                        # [linux]
-    - openblas                   # [osx]
-    - lapack                     # [win]
-    - blas                       # [win]
+    - openblas                   # [osx or win]
     - python
     - numpy
     - scikit-build
@@ -47,9 +41,7 @@ requirements:
   run:
     - python
     - mkl                        # [linux]
-    - openblas                   # [osx]
-    - lapack                     # [win]
-    - blas                       # [win]
+    - openblas                   # [osx or win]
     - {{ pin_compatible('numpy') }}
 
 test:
