@@ -1,6 +1,6 @@
 {% set name = "slycot" %}
 {% set version = "0.3.3" %}
-{% set sha256 = "1779c1ed8500ec969edd2d91754d271311d8f21a2d60098ee03cd6712a924ddb" %}
+{% set sha256 = "c7c9582b28cffb55b1a0d5099cb74bc511affc97145bb2236bde69bc4e6cfd74" %}
 
 package:
   name: {{ name|lower }}
