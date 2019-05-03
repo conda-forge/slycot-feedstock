@@ -1,6 +1,6 @@
 {% set name = "slycot" %}
-{% set version = "0.3.3" %}
-{% set sha256 = "d98ec859a398af8a3917a0d62e0724996c8b3e780813f8685410525aed9fbafd" %}
+{% set version = "0.3.4" %}
+{% set sha256 = "63e648b2be8c8ba0322a5fe286bdcf0e8d28a0c12e9ab1510f2a8725fc1283ec" %}
 
 package:
   name: {{ name|lower }}
@@ -8,28 +8,40 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  # for testing still, should switch over to pypi package when available
+  # url: https://github.com/python-control/Slycot/archive/v{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.0.tar.gz
   sha256: {{ sha256 }}
 
 build:
-  number: 1003
-  # NOTE: Conda forge lacks openblas on Windows, so skip the Windows build.
-  skip: true  # [win]
+  number: 0
+  # problem with python2.7 configuration on windows and osx
+  skip: true                     # [win and py==27]
+  skip: true                     # [osx and py==27]
+
+# TODO: (later) solve imperfections
+# * the clang compiler on osx gives a link error, thought to be related to 
+#   cmake and env. Try later when this may be fixed. Alternative: gcc
+# * the mkl library does not link on osx or win. Alternative: openblas
 
 requirements:
   build:
-    - {{ compiler('fortran') }}
-    - {{ compiler('c') }}
+    - {{ compiler('fortran') }}  # [not win]
+    - flang                      # [win]
+    - {{ compiler('c') }}        # [not osx]
+    - gcc                        # [osx]
 
   host:
-    - libblas
-    - liblapack
+    - openblas
     - python
     - numpy
+    - scikit-build
 
   run:
     - python
+    - openblas
     - {{ pin_compatible('numpy') }}
+    - libflang                   # [win]
 
 test:
   imports:
@@ -50,3 +62,4 @@ extra:
   recipe-maintainers:
     - moorepants
     - murrayrm
+    - repagh
