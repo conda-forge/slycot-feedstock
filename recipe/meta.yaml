@@ -1,6 +1,6 @@
 {% set name = "slycot" %}
-{% set version = "0.3.3" %}
-{% set sha256 = "c7c9582b28cffb55b1a0d5099cb74bc511affc97145bb2236bde69bc4e6cfd74" %}
+{% set version = "0.3.4" %}
+{% set sha256 = "3ae6db8df6b99b4417394404a548c6464248fc7031f21008f992e317f91d23f1" %}
 
 package:
   name: {{ name|lower }}
@@ -8,13 +8,13 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  # temporary, for testing. 
-  url: https://github.com/repagh/Slycot/archive/update-buildconfig.tar.gz
-  # url: https://github.com/python-control/Slycot/archive/v{{ version }}.tar.gz
+  # for testing still, should switch over to pypi package when available
+  url: https://github.com/python-control/Slycot/archive/v{{ version }}.tar.gz
+  # url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
-  number: 1004
+  number: 0
   # problem with python2.7 configuration on windows and osx
   skip: true                     # [win and py==27]
   skip: true                     # [osx and py==27]
