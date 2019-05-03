@@ -1,5 +1,5 @@
 {% set name = "slycot" %}
-{% set version = "0.3.4" %}
+{% set version = "0.3.4.0" %}
 {% set sha256 = "63e648b2be8c8ba0322a5fe286bdcf0e8d28a0c12e9ab1510f2a8725fc1283ec" %}
 
 package:
@@ -10,17 +10,17 @@ source:
   fn: {{ name }}-{{ version }}.tar.gz
   # for testing still, should switch over to pypi package when available
   # url: https://github.com/python-control/Slycot/archive/v{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.0.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   # problem with python2.7 configuration on windows and osx
   skip: true                     # [win and py==27]
   skip: true                     # [osx and py==27]
 
 # TODO: (later) solve imperfections
-# * the clang compiler on osx gives a link error, thought to be related to 
+# * the clang compiler on osx gives a link error, thought to be related to
 #   cmake and env. Try later when this may be fixed. Alternative: gcc
 # * the mkl library does not link on osx or win. Alternative: openblas
 
