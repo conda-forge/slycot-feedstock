@@ -1,6 +1,6 @@
 {% set name = "slycot" %}
 {% set version = "0.3.4" %}
-{% set sha256 = "3ae6db8df6b99b4417394404a548c6464248fc7031f21008f992e317f91d23f1" %}
+{% set sha256 = "63e648b2be8c8ba0322a5fe286bdcf0e8d28a0c12e9ab1510f2a8725fc1283ec" %}
 
 package:
   name: {{ name|lower }}
@@ -9,8 +9,8 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   # for testing still, should switch over to pypi package when available
-  url: https://github.com/python-control/Slycot/archive/v{{ version }}.tar.gz
-  # url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  # url: https://github.com/python-control/Slycot/archive/v{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.0.tar.gz
   sha256: {{ sha256 }}
 
 build:
