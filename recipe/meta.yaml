@@ -33,8 +33,6 @@ requirements:
     - libcblas
     - liblapack
     - liblapacke
-    - openblas  # [not win]
-    - mkl  # [win]
     - python
     - numpy
     - scikit-build
