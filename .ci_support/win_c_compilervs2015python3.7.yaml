@@ -12,13 +12,9 @@ liblapack:
 - 3.8.0 *netlib
 liblapacke:
 - 3.8.0 *netlib
-mkl:
-- '2019'
 numpy:
 - '1.11'
 pin_run_as_build:
-  mkl:
-    max_pin: x
   python:
     min_pin: x.x
     max_pin: x.x
