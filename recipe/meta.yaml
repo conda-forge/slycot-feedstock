@@ -29,7 +29,12 @@ requirements:
     - gcc                        # [osx]
 
   host:
-    - openblas
+    - libblas
+    - libcblas
+    - liblapack
+    - liblapacke
+    - openblas  # [not win]
+    - mkl  # [win]
     - python
     - numpy
     - scikit-build
