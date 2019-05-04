@@ -8,25 +8,17 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  # for testing still, should switch over to pypi package when available
-  # url: https://github.com/python-control/Slycot/archive/v{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
-  number: 0
-
-# TODO: (later) solve imperfections
-# * the clang compiler on osx gives a link error, thought to be related to
-#   cmake and env. Try later when this may be fixed. Alternative: gcc
-# * the mkl library does not link on osx or win. Alternative: openblas
+  number: 1
 
 requirements:
   build:
+    - {{ compiler('c') }}
     - {{ compiler('fortran') }}  # [not win]
     - flang                      # [win]
-    - {{ compiler('c') }}        # [not osx]
-    - gcc                        # [osx]
 
   host:
     - libblas
@@ -40,10 +32,10 @@ requirements:
     - scikit-build
 
   run:
-    - python
-    - openblas
-    - {{ pin_compatible('numpy') }}
     - libflang                   # [win]
+    - openblas
+    - python
+    - {{ pin_compatible('numpy') }}
 
 test:
   imports:
