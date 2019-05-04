@@ -4,13 +4,21 @@ channel_sources:
 - conda-forge,defaults
 channel_targets:
 - conda-forge main
+libblas:
+- 3.8 *netlib
+libcblas:
+- 3.8 *netlib
+liblapack:
+- 3.8.0 *netlib
+liblapacke:
+- 3.8.0 *netlib
+mkl:
+- '2019'
 numpy:
 - '1.11'
-openblas:
-- 0.3.3
 pin_run_as_build:
-  openblas:
-    max_pin: x.x.x
+  mkl:
+    max_pin: x
   python:
     min_pin: x.x
     max_pin: x.x
