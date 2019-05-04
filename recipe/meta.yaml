@@ -13,6 +13,11 @@ source:
 
 build:
   number: 1
+  # NOTE : flang (and its dependency openmp) require vc14 on Windows. Python
+  # 2.7 builds require vc9, thus it is not possible to build with flang on
+  # Windows for Python 2.7 via conda forge. See
+  # https://github.com/conda-forge/openmp-feedstock/issues/21.
+  skip: true  # [win and py==27]
 
 requirements:
   build:
