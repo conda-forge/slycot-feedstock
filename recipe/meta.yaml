@@ -1,6 +1,6 @@
 {% set name = "slycot" %}
-{% set version = "0.3.4.0" %}
-{% set sha256 = "63e648b2be8c8ba0322a5fe286bdcf0e8d28a0c12e9ab1510f2a8725fc1283ec" %}
+{% set version = "0.3.5.0" %}
+{% set sha256 = "cad98d5ea4f0a034cf398c39189f587620a0b03f1d4b71e77cd622a327f13adf" %}
 
 package:
   name: {{ name|lower }}
@@ -32,14 +32,14 @@ requirements:
     - gcc                        # [osx]
 
   host:
-    - openblas
+    - libopenblas
     - python
     - numpy
     - scikit-build
 
   run:
     - python
-    - openblas
+    - libopenblas
     - {{ pin_compatible('numpy') }}
     - libflang                   # [win]
 
