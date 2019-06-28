@@ -1,9 +1,8 @@
-:: set BLAS_ROOT=%PREFIX%
-:: set LAPACK_ROOT=%PREFIX%
 
 :: correct FC, apparently pointed to host prefix??
 set FC=%BUILD_PREFIX%\Library\bin\flang.exe
-
+set BLAS_ROOT=%PREFIX%
+set LAPACK_ROOT=%PREFIX%
 if exist %PREFIX%\Scripts\f2py.exe (
   set F2PY=%PREFIX%\Scripts\f2py.exe
 ) else (
