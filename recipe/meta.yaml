@@ -28,8 +28,7 @@ requirements:
   build:
     - {{ compiler('fortran') }}  # [not win]
     - flang                      # [win]
-    - {{ compiler('c') }}        # [linux]
-    - vs2015_win-64              # [win]
+    - {{ compiler('c') }}        # [not osx]
     - gcc                        # [osx]
 
   host:
