@@ -26,22 +26,18 @@ build:
 
 requirements:
   build:
-    - {{ compiler('fortran') }}  # [not win]
-    - flang                      # [win]
-    - {{ compiler('c') }}        # [not osx]
-    - gcc                        # [osx]
-
+    - {{ compiler('fortran') }}
+    - {{ compiler('c') }}
   host:
-    - openblas
+    - libblas
+    - libcblas
+    - liblapack
     - python
     - numpy
     - scikit-build
-
   run:
     - python
-    - openblas
     - {{ pin_compatible('numpy') }}
-    - libflang                   # [win]
 
 test:
   imports:
