@@ -14,7 +14,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   # problem with python2.7 configuration on windows and osx
   skip: true                     # [win and py==27]
   skip: true                     # [osx and py==27]
@@ -26,22 +26,18 @@ build:
 
 requirements:
   build:
-    - {{ compiler('fortran') }}  # [not win]
-    - flang                      # [win]
-    - {{ compiler('c') }}        # [not osx]
-    - gcc                        # [osx]
-
+    - {{ compiler('fortran') }}
+    - {{ compiler('c') }}
   host:
-    - openblas
+    - libblas
+    - libcblas
+    - liblapack
     - python
     - numpy
     - scikit-build
-
   run:
     - python
-    - openblas
     - {{ pin_compatible('numpy') }}
-    - libflang                   # [win]
 
 test:
   imports:
