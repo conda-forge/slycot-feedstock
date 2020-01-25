@@ -27,7 +27,9 @@ requirements:
     - liblapack
     - python
     - numpy
-    - scikit-build
+    # conda-forge::scikit-build>=0.10.0 includes MACOSX_DEPLOYMENT_TARGET
+    # patches from https://github.com/scikit-build/scikit-build/pull/441
+    - scikit-build >=0.10.0
   run:
     - python
     - {{ pin_compatible('numpy') }}
