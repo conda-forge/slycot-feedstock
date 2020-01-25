@@ -35,6 +35,8 @@ requirements:
 test:
   imports:
     - slycot
+  commands:
+    - python -c "from slycot import test; test()"
 
 about:
   home: https://github.com/python-control/Slycot
