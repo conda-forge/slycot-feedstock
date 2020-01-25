@@ -35,6 +35,8 @@ requirements:
     - {{ pin_compatible('numpy') }}
 
 test:
+  requires:
+    - nose
   imports:
     - slycot
   commands:
