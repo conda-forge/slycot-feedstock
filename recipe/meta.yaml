@@ -1,28 +1,21 @@
-{% set name = "slycot" %}
 {% set version = "0.3.5.0" %}
 {% set sha256 = "cad98d5ea4f0a034cf398c39189f587620a0b03f1d4b71e77cd622a327f13adf" %}
 
 package:
-  name: {{ name|lower }}
+  name: slycot
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  # for testing still, should switch over to pypi package when available
-  # url: https://github.com/python-control/Slycot/archive/v{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/s/slycot/slycot-{{ version }}.tar.gz
   sha256: {{ sha256 }}
+  patches:
+    - 0001-Use-python_extension_module.patch
 
 build:
-  number: 1
+  number: 2
   # problem with python2.7 configuration on windows and osx
   skip: true                     # [win and py==27]
   skip: true                     # [osx and py==27]
-
-# TODO: (later) solve imperfections
-# * the clang compiler on osx gives a link error, thought to be related to
-#   cmake and env. Try later when this may be fixed. Alternative: gcc
-# * the mkl library does not link on osx or win. Alternative: openblas
 
 requirements:
   build:
@@ -34,14 +27,20 @@ requirements:
     - liblapack
     - python
     - numpy
-    - scikit-build
+    # conda-forge::scikit-build>=0.10.0 includes MACOSX_DEPLOYMENT_TARGET
+    # patches from https://github.com/scikit-build/scikit-build/pull/441
+    - scikit-build >=0.10.0
   run:
     - python
     - {{ pin_compatible('numpy') }}
 
 test:
+  requires:
+    - nose
   imports:
     - slycot
+  commands:
+    - python -c "from slycot import test; test()"
 
 about:
   home: https://github.com/python-control/Slycot
