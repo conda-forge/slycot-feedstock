@@ -13,9 +13,6 @@ source:
 
 build:
   number: 0
-  # problem with python2.7 configuration on windows and osx
-  skip: true  # [win and py==27]
-  skip: true  # [osx and py==27]
 
 requirements:
   build:
