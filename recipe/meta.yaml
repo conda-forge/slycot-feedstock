@@ -45,7 +45,7 @@ test:
 about:
   home: https://github.com/python-control/Slycot
   dev_url: https://github.com/python-control/Slycot
-  license: GPL-2.0
+  license: GPL-2.0-only
   license_family: GPL
   license_file: COPYING
   summary: 'Slycot: a wrapper for the SLICOT control and systems library'
