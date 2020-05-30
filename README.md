@@ -3,7 +3,7 @@ About slycot
 
 Home: https://github.com/python-control/Slycot
 
-Package license: GPL-2.0
+Package license: GPL-2.0-only
 
 Feedstock license: BSD 3-Clause
 

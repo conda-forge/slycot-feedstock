@@ -10,7 +10,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -31,11 +31,13 @@ requirements:
 
 test:
   requires:
-    - nose
+    - pytest
+    - scipy
   imports:
     - slycot
   commands:
-    - python -c "from slycot import test; test()"
+    - pytest --pyargs slycot  # [not win]
+    - pytest --pyargs slycot -k "not test_xerbla_override"  # [win]
 
 about:
   home: https://github.com/python-control/Slycot
