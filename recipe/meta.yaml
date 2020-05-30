@@ -8,8 +8,6 @@ package:
 source:
   url: https://pypi.io/packages/source/s/slycot/slycot-{{ version }}.tar.gz
   sha256: {{ sha256 }}
-  patches:
-    - 0001-Use-python_extension_module.patch
 
 build:
   number: 0
