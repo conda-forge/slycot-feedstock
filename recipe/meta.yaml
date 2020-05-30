@@ -31,11 +31,12 @@ requirements:
 
 test:
   requires:
-    - nose
+    - pytest
+    - scipy
   imports:
     - slycot
   commands:
-    - python -c "from slycot import test; test()"
+    - pytest --pyargs slycot
 
 about:
   home: https://github.com/python-control/Slycot
