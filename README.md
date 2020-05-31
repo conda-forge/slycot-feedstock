@@ -135,6 +135,16 @@ It is possible to list all of the versions of `slycot` available on your platfor
 conda search slycot --channel conda-forge
 ```
 
+Changing the BLAS implementation
+================================
+
+Slycot is compiled and tested against the reference BLAS implementation in conda-forge. The [conda-forge knowledge base](https://conda-forge.org/docs/maintainer/knowledge_base.html#switching-blas-implementation) shows how to change BLAS implementations.
+
+If you switched to a different implementation, please verify that Slycot is functional, and run its tests with the following command:
+
+```
+pytest --pyargs slycot
+```
 
 About conda-forge
 =================
