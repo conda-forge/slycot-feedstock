@@ -19,6 +19,7 @@ requirements:
     - numpy                                  # [build_platform != target_platform]
     - {{ compiler('fortran') }}
     - {{ compiler('c') }}
+    - cmake
   host:
     - libblas
     - libcblas
