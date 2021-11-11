@@ -1,5 +1,6 @@
 # debug line
 which cmake
+$BUILD_PREFIX/bin/cmake --version
 cmake --version
 echo "OK"
 #
