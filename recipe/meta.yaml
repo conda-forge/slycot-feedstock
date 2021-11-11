@@ -20,15 +20,13 @@ requirements:
     - {{ compiler('fortran') }}
     - {{ compiler('c') }}
     - cmake
+    - scikit-build >=0.10.0
   host:
     - libblas
     - libcblas
     - liblapack
     - python
     - numpy
-    # conda-forge::scikit-build>=0.10.0 includes MACOSX_DEPLOYMENT_TARGET
-    # patches from https://github.com/scikit-build/scikit-build/pull/441
-    - scikit-build >=0.10.0
   run:
     - python
     - {{ pin_compatible('numpy') }}
