@@ -1,5 +1,5 @@
 :: correct FC, apparently pointed to host prefix??
-￼set FC=%BUILD_PREFIX%\Library\bin\flang.exe
+set FC=%BUILD_PREFIX%\Library\bin\flang.exe
 set BLAS_ROOT=%PREFIX%
 set LAPACK_ROOT=%PREFIX%
 
