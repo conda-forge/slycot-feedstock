@@ -10,24 +10,26 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 4
+  number: 5
 
 requirements:
   build:
-    - {{ compiler('fortran') }}
+    - {{ compiler('fortran') }}  # [not win]
     - {{ compiler('c') }}
+    - cmake
+    - make  # [linux]
+    - flang >=11  # [win]
   host:
     - libblas
     - libcblas
     - liblapack
     - python
     - numpy
-    # conda-forge::scikit-build>=0.10.0 includes MACOSX_DEPLOYMENT_TARGET
-    # patches from https://github.com/scikit-build/scikit-build/pull/441
     - scikit-build >=0.10.0
   run:
     - python
     - {{ pin_compatible('numpy') }}
+    - libflang  # [win]
 
 test:
   requires:
