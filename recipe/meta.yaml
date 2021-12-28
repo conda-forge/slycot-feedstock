@@ -26,8 +26,8 @@ requirements:
     - libblas
     - libcblas
     - liblapack
-    - python
-    - numpy
+    - python  # [build_platform == target_platform]
+    - numpy   # [build_platform == target_platform]
     - scikit-build >=0.10.0
   run:
     - python
