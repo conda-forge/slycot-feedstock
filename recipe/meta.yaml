@@ -32,6 +32,7 @@ requirements:
     - python
     - numpy >=1.19,!=1.23.0
     - scikit-build >=0.14.1
+    - pip
   run:
     - python
     - {{ pin_compatible('numpy') }}

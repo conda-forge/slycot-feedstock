@@ -6,5 +6,5 @@ if [ "$target_platform" = "osx-arm64" ]; then
   ln -sf $PREFIX/lib/libc++.dylib $PREFIX/lib/libpython$PY_VER.dylib
 fi
 
-$PYTHON setup.py build_ext install -- \
-        -DBLA_VENDOR=Generic
+export SKBUILD_CONFIGURE_OPTIONS="-DBLA_VENDOR=Generic"
+$PYTHON -m pip install -v .
