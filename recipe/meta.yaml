@@ -18,7 +18,7 @@ requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - numpy !=1.23.0                        # [build_platform != target_platform]
+    - numpy >=1.19,!=1.23.0                  # [build_platform != target_platform]
     - scikit-build >=0.14.1                  # [build_platform != target_platform]
     - {{ compiler('fortran') }}  # [not win]
     - {{ compiler('c') }}
@@ -30,7 +30,7 @@ requirements:
     - libcblas
     - liblapack
     - python
-    - numpy !=1.23.0
+    - numpy >=1.19,!=1.23.0
     - scikit-build >=0.14.1
   run:
     - python
