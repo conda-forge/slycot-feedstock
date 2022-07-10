@@ -45,8 +45,7 @@ test:
   imports:
     - slycot
   commands:
-    - pytest --pyargs slycot  # [not win]
-    - pytest --pyargs slycot -k "not test_xerbla_override"  # [win]
+    - pytest --pyargs slycot
 
 about:
   home: https://github.com/python-control/Slycot
