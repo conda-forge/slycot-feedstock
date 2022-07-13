@@ -6,6 +6,8 @@ fi
 export SKBUILD_CONFIGURE_OPTIONS="-DBLA_VENDOR=Generic"
 
 which f2py3
-f2py3 -h
+head $(which f2py3)
+f2py3 -h ||:
+$PYTHON $(which f2py3) -h ||:
 
 $PYTHON -m pip install -v .
