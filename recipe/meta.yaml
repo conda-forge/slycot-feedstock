@@ -1,5 +1,5 @@
-{% set version = "0.4.0.0" %}
-{% set sha256 = "1d9921e9b04a5b9892870fd3481f7b08e6fa083a1a3848ad262819de19eb5e02" %}
+{% set version = "0.5.0.0" %}
+{% set sha256 = "8c80e45d09000bf41a5f30794608844d4aa3410df6442cbe92e82d5ff7c2f330" %}
 
 package:
   name: slycot
@@ -8,16 +8,18 @@ package:
 source:
   url: https://pypi.io/packages/source/s/slycot/slycot-{{ version }}.tar.gz
   sha256: {{ sha256 }}
+  patches:
+    - setupcfgin.patch
 
 build:
-  number: 8
+  number: 0
 
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - numpy                                  # [build_platform != target_platform]
-    - scikit-build                           # [build_platform != target_platform]
+    - numpy >=1.19,!=1.23.0                  # [build_platform != target_platform]
+    - scikit-build >=0.14.1                  # [build_platform != target_platform]
     - {{ compiler('fortran') }}  # [not win]
     - {{ compiler('c') }}
     - cmake
@@ -28,8 +30,9 @@ requirements:
     - libcblas
     - liblapack
     - python
-    - numpy
-    - scikit-build >=0.10.0
+    - numpy >=1.19,!=1.23.0
+    - scikit-build >=0.14.1
+    - pip
   run:
     - python
     - {{ pin_compatible('numpy') }}
@@ -42,8 +45,7 @@ test:
   imports:
     - slycot
   commands:
-    - pytest --pyargs slycot  # [not win]
-    - pytest --pyargs slycot -k "not test_xerbla_override"  # [win]
+    - pytest --pyargs slycot
 
 about:
   home: https://github.com/python-control/Slycot
@@ -59,6 +61,7 @@ about:
 extra:
   recipe-maintainers:
     - roryyorke
+    - bnavigator
     - moorepants
     - murrayrm
     - repagh
