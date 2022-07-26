@@ -1,0 +1,87 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b018ff8..83a420c 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,25 +1,24 @@
+ # CMake file for use in conjunction with scikit-build
+ 
+-cmake_minimum_required(VERSION 3.11.0)
++cmake_minimum_required(VERSION 3.14.0)
+ 
+-if (CMAKE_VERSION VERSION_GREATER "3.11.99")
+-  cmake_policy(SET CMP0074 NEW)
+-endif()
++cmake_policy(SET CMP0074 NEW)
+ 
+ project(slycot VERSION ${SLYCOT_VERSION} LANGUAGES NONE)
+ 
+ enable_language(C)
+ enable_language(Fortran)
+ 
+-find_package(PythonLibs REQUIRED)
++find_package(Python COMPONENTS Interpreter Development NumPy REQUIRED)
+ find_package(PythonExtensions REQUIRED)
+ find_package(NumPy REQUIRED)
+ find_package(F2PY REQUIRED)
+ find_package(BLAS REQUIRED)
+ find_package(LAPACK REQUIRED)
+ 
+-message(STATUS "NumPy included from: ${NumPy_INCLUDE_DIR}")
+-message(STATUS "F2PY included from: ${F2PY_INCLUDE_DIR}")
++message(STATUS "Python headers included from: ${Python_INCLUDE_DIRS}")
++message(STATUS "NumPy headers included from: ${Python_NumPy_INCLUDE_DIRS}")
++message(STATUS "F2PY headers included from: ${F2PY_INCLUDE_DIRS}")
+ message(STATUS "LAPACK: ${LAPACK_LIBRARIES}")
+ message(STATUS "BLAS: ${BLAS_LIBRARIES}")
+ message(STATUS "Slycot version: ${SLYCOT_VERSION}")
+diff --git a/conda-recipe/meta.yaml b/conda-recipe/meta.yaml
+index b3e846d..1a8709f 100644
+--- a/conda-recipe/meta.yaml
++++ b/conda-recipe/meta.yaml
+@@ -13,7 +13,7 @@ requirements:
+   build:
+     - {{ compiler('fortran') }}  # [not win]
+     - {{ compiler('c') }}
+-    - cmake
++    - cmake >=3.14
+     - make  # [linux]
+     - flang >=11  # [win]
+ 
+@@ -29,7 +29,7 @@ requirements:
+     - python
+     - numpy!=1.23.0
+     - pip
+-    - scikit-build >=0.14.1
++    - scikit-build >=0.15
+ 
+   run:
+     - python {{ PY_VER }}
+diff --git a/pyproject.toml b/pyproject.toml
+index e55372a..df755e1 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -2,7 +2,7 @@
+ requires = [
+     "setuptools",
+     "wheel",
+-    "scikit-build>=0.14.1",
+-    "cmake",
++    "scikit-build>=0.15",
++    "cmake>=3.14",
+     "numpy!=1.23.0"]
+ build-backend = "setuptools.build_meta"
+diff --git a/slycot/CMakeLists.txt b/slycot/CMakeLists.txt
+index f656c32..ec73789 100644
+--- a/slycot/CMakeLists.txt
++++ b/slycot/CMakeLists.txt
+@@ -666,8 +666,9 @@ target_link_libraries(${SLYCOT_MODULE}
+ 
+ target_include_directories(
+   ${SLYCOT_MODULE} PUBLIC
++  ${Python_INCLUDE_DIRS}
++  ${Python_NumPy_INCLUDE_DIRS}
+   ${F2PY_INCLUDE_DIRS}
+-  ${PYTHON_INCLUDE_DIRS}
+   )
+ 
+ if (UNIX)

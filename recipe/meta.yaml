@@ -10,6 +10,7 @@ source:
   sha256: {{ sha256 }}
   patches:
     - setupcfgin.patch
+    - slycot-pr181rebased-findpython.patch
 
 build:
   number: 1
