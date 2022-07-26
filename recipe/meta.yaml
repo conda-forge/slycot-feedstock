@@ -17,10 +17,10 @@ requirements:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - numpy >=1.19,!=1.23.0                  # [build_platform != target_platform]
-    - scikit-build >=0.14.1                  # [build_platform != target_platform]
+    - scikit-build >=0.15                    # [build_platform != target_platform]
     - {{ compiler('fortran') }}  # [not win]
     - {{ compiler('c') }}
-    - cmake
+    - cmake >=3.14
     - make  # [linux]
     - flang >=11  # [win]
   host:
@@ -29,7 +29,7 @@ requirements:
     - liblapack
     - python
     - numpy >=1.19,!=1.23.0
-    - scikit-build >=0.14.1
+    - scikit-build >=0.15
     - pip
   run:
     - python
