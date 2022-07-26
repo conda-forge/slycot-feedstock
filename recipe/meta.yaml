@@ -1,15 +1,13 @@
-{% set version = "0.5.0.0" %}
-{% set sha256 = "8c80e45d09000bf41a5f30794608844d4aa3410df6442cbe92e82d5ff7c2f330" %}
+{% set version = "0.5.1.dev1" %}
 
 package:
   name: slycot
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/s/slycot/slycot-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
-  patches:
-    - setupcfgin.patch
+  # DO NOT MERGE THIS !
+  git_url: https://github.com/bnavigator/Slycot.git
+  git_rev: findpython
 
 build:
   number: 1
