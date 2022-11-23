@@ -1,5 +1,5 @@
-{% set version = "0.5.0.0" %}
-{% set sha256 = "8c80e45d09000bf41a5f30794608844d4aa3410df6442cbe92e82d5ff7c2f330" %}
+{% set version = "0.5.1" %}
+{% set sha256 = "09164b391b1d13138e88717391de6f0eb0103c5ec2851356e0a4c81e2711371e" %}
 
 package:
   name: slycot
@@ -8,12 +8,9 @@ package:
 source:
   url: https://pypi.io/packages/source/s/slycot/slycot-{{ version }}.tar.gz
   sha256: {{ sha256 }}
-  patches:
-    - setupcfgin.patch
-    - slycot-pr181rebased-findpython.patch
 
 build:
-  number: 2
+  number: 0
 
 requirements:
   build:
@@ -21,6 +18,7 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - numpy >=1.19,!=1.23.0                  # [build_platform != target_platform]
     - scikit-build >=0.15                    # [build_platform != target_platform]
+    - setuptools_scm
     - {{ compiler('fortran') }}  # [not win]
     - {{ compiler('c') }}
     - cmake >=3.14
