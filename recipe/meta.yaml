@@ -1,5 +1,5 @@
-{% set version = "0.5.2" %}
-{% set sha256 = "0a88918487c77854bc162684e5b6a71cd880affccef8413eb26f89497eb654ad" %}
+{% set version = "0.5.3" %}
+{% set sha256 = "727d6ed857ea66f72adb4b84c29c45a71beb346127324e245db2aaf01d0df7cd" %}
 
 package:
   name: slycot
