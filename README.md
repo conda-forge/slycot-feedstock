@@ -1,11 +1,11 @@
-About slycot
-============
+About slycot-feedstock
+======================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/slycot-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/python-control/Slycot
 
 Package license: GPL-2.0-only
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/slycot-feedstock/blob/main/LICENSE.txt)
 
 Summary: Slycot: a wrapper for the SLICOT control and systems library
 
