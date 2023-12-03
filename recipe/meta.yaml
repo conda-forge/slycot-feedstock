@@ -10,7 +10,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 4
+  number: 5
 
 requirements:
   build:
@@ -20,7 +20,7 @@ requirements:
     - scikit-build >=0.15                    # [build_platform != target_platform]
     - {{ compiler('fortran') }}
     - {{ compiler('c') }}
-    - cmake >=3.14
+    - cmake >=3.17
     - make  # [linux]
   host:
     - libblas
