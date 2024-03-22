@@ -11,4 +11,3 @@ github:
 provider:
   win: azure
 test: native
-  win: azure
