@@ -1,5 +1,5 @@
-{% set version = "0.5.4" %}
-{% set sha256 = "0bcb6e6322d955bfe696a549cb09c1f16272cbbdd09453cb82ea7193ed3d01c6" %}
+{% set version = "0.6.0" %}
+{% set sha256 = "98ecf19cad0c6ce0d6f4db95169efc14f89a285ac24a4a8da1ca5b96b9da3c23" %}
 
 package:
   name: slycot
@@ -10,7 +10,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 4
+  number: 0
 
 requirements:
   build:
