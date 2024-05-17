@@ -10,7 +10,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<310]
 
 requirements:
@@ -21,6 +21,7 @@ requirements:
     - scikit-build >=0.15                    # [build_platform != target_platform]
     - {{ compiler('fortran') }}
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - cmake >=3.14
     - make  # [linux]
   host:
@@ -35,7 +36,6 @@ requirements:
     - setuptools_scm >=7
   run:
     - python
-    - {{ pin_compatible('numpy') }}
 
 test:
   requires:
