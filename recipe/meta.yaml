@@ -6,11 +6,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/s/slycot/slycot-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/s/slycot/slycot-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
-  number: 2
+  number: 3
   skip: true  # [py<310]
 
 requirements:
