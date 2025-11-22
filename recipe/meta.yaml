@@ -23,7 +23,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - cmake >=3.14
-    - make  # [linux]
+    - make  # [unix]
   host:
     - libblas
     - libcblas
