@@ -1,10 +1,9 @@
-:: correct FC, apparently pointed to host prefix??
-set FC=%BUILD_PREFIX%\Library\bin\flang.exe
-set BLAS_ROOT=%PREFIX%
-set LAPACK_ROOT=%PREFIX%
+@echo on
 
-set "SKBUILD_CONFIGURE_OPTIONS=-DBLA_VENDOR=Generic"
-set "CMAKE_GENERATOR=Ninja"
-"%PYTHON%" -m pip install -v .
+@rem -GNinja selects Ninja build generator
+@rem SLYCOT_WINDOWS_CONDA_BUILD clears a debug build setting that
+@rem otherwise prevents the build
+set "SKBUILD_CMAKE_ARGS=-GNinja;-DSLYCOT_WINDOWS_CONDA_BUILD=ON"
 
-if errorlevel 1 exit 1
+%PYTHON% -m pip install --no-deps --no-build-isolation -vv .
+if %ERRORLEVEL% neq 0 exit 1
